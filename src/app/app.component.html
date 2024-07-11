@@ -1,4 +1,43 @@
 <div class="container mt-5">
+    <div>{{title}}</div>
+    <div (click)="onImageClick()">
+        <img [src]="imageCoverUrl" />
+    </div>
+</div>
+
+<div class="container mt-5">
+    @if(major != '') {
+        <div>Major : {{major}}</div>
+    }
+</div>
+
+<div class="container mt-5">
+    @for(item of items; track $index) {
+        <div>{{$index}} {{item}}</div>
+    }
+</div>
+
+<div class="container mt-5">
+    @switch (size) {
+        @case ("S") {
+            <div>Size S</div>
+        }
+        @case ("M") {
+            <div>Size M</div>
+        }
+        @default {
+            <div>Free Size</div>
+        }
+    }
+</div>
+
+<div class="container mt-5">
+    <div>{{ now }}</div>
+    <div>{{ now | date }}</div>
+    <div>{{ now | date : 'shortDate' }}</div>
+</div>
+
+<div class="container mt-5">
     <button routerLink="/" type="button" class="btn btn-secondary m-1">Home</button>
     <button routerLink="/page1" type="button" class="btn btn-primary m-1">Page 1</button>
     <button [routerLink]="['/page2']" type="button" class="btn btn-success m-1">Page 2</button>
