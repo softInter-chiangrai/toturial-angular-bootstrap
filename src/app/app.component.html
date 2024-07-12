@@ -5,6 +5,32 @@
     </div>
 </div>
 
+<div class="container mt-5 flex">
+    <button class="btn btn-primary" (click)="onGetAll()">GET ALL</button>
+    <button class="btn btn-primary" (click)="onGetById()">GET ID</button>
+    <button class="btn btn-success" (click)="onPost()">POST</button>
+    <button class="btn btn-info" (click)="onPut()">PUT</button>
+    <button class="btn btn-danger" (click)="onDelete()">DELETE</button>
+</div>
+
+<div class="container mt-5">
+    <label for="name">Name: </label>
+    <input class="form-control" id="name" type="text" [formControl]="name">
+    <p>Name: {{ name.value }}</p>
+</div>
+
+<div class="container mt-5">
+    <form [formGroup]="profileForm" (ngSubmit)="profileFormSubmit()">
+        <label for="first-name">First Name: </label>
+        <input class="form-control" id="first-name" type="text" formControlName="firstName">
+    
+        <label for="last-name">Last Name: </label>
+        <input class="form-control" id="last-name" type="text" formControlName="lastName">
+    
+        <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+</div>
+
 <div class="container mt-5">
     @if(major != '') {
         <div>Major : {{major}}</div>
@@ -35,6 +61,12 @@
     <div>{{ now }}</div>
     <div>{{ now | date }}</div>
     <div>{{ now | date : 'shortDate' }}</div>
+</div>
+
+<div class="container mt-5">
+    <div>{{ number }}</div>
+    <div>{{ number | number }}</div>
+    <div>{{ number | number : '1.2-2' }}</div>
 </div>
 
 <div class="container mt-5">
