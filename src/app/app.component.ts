@@ -53,7 +53,7 @@ export class AppComponent {
     let url = this.service_path
     this.http.get(url).subscribe(
       {
-        next(result) {
+        next:(result) => {
           console.log(result)
         }
       }
@@ -67,7 +67,7 @@ export class AppComponent {
     let url = `${this.service_path}/${id}`
     this.http.get(url).subscribe(
       {
-        next(result) {
+        next:(result) => {
           console.log(result)
         }
       }
@@ -82,7 +82,7 @@ export class AppComponent {
        "topic": "angular 1"
     }
     this.http.post(url, body).subscribe({
-      next(result) {
+      next:(result) => {
         console.log(result)
       }
     })
@@ -97,7 +97,7 @@ export class AppComponent {
       "topic": "angular 1 edit"
     }
     this.http.put(url, body).subscribe({
-      next(result) {
+      next:(result) => {
         console.log(result)
       }
     })
@@ -109,10 +109,10 @@ export class AppComponent {
     let id = 11
     let url = `${this.service_path}/${id}`
     this.http.delete(url).subscribe({
-      next(result) {
+      next:(result) => {
         console.log(result)
       },
-      error(err) {
+      error:(err) => {
         console.log(err.error)
         alert(`${id} ${err.error}`)
       }
